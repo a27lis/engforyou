@@ -15,6 +15,7 @@
   --bg-color-colored: #f7ede8;
   --text-color-bl: black;
   --text-color-red: #CD4631;
+  --text-color-light: #4d4d4d;
 
 }
 
@@ -70,7 +71,7 @@ header {
 }
 .header-top {
   padding: 2rem 4rem 2rem 4rem;
-    @media (max-width: 810px) {
+    @media (max-width: 811px) {
       padding: 0.3rem 0.3rem 0.3rem 0.3rem;
     }
 }
@@ -86,7 +87,7 @@ ul.menu li {
 }
 .logo {
   padding: 0 1.5rem 0 0;
-  @media (max-width: 810px) {
+  @media (max-width: 811px) {
     padding:0;
   }
 }
@@ -111,7 +112,7 @@ ul.menu li {
   display: flex;
   align-items: center;
   justify-content: end;
-  @media (max-width: 810px) {
+  @media (max-width: 811px) {
     justify-content: center;
   }
 }
@@ -155,15 +156,20 @@ ul.buttons-auth li {
   box-shadow: none;
 }
 
+.header-middle {
+  padding-right: 1rem;
+}
+
 .shapes {
   display: flex;
   justify-content: center;
 }
 .stars {
   transform: scale(0.7);
+  
 }
 
-.container {
+.container-col {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,7 +179,7 @@ ul.buttons-auth li {
 }
 .first-text {
   font-size: 96px;
-  @media (max-width: 810px) {
+  @media (max-width: 811px) {
     font-size: 40px;
   }
 }
@@ -182,7 +188,7 @@ ul.buttons-auth li {
   font-size: 96px;
   color: var(--text-color-red);
   margin-top: -3rem;
-  @media (max-width: 810px) {
+  @media (max-width: 811px) {
     font-size: 40px;
     margin-top: -1rem;
   }
@@ -199,11 +205,274 @@ ul.buttons-auth li {
   position: relative;
   bottom: 50%;
   transform: translateY(50%);
-  @media (max-width: 810px) {
-    width: 25%;
-    height: 25%;
+  @media (max-width: 811px) {
+    width: 15%;
+    height: 15%;
   }
 
 }
 
 /*======================== CONTENT RULES ========================*/
+
+
+
+.topics-main {
+  padding: 7rem 15rem 5rem 15rem;
+  @media (max-width: 811px) {
+    padding: 5rem 5rem 5rem 5rem;
+  }
+}
+.title {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.first-row-title {
+  font-size: 59px;
+  @media (max-width: 811px) {
+    font-size: 24px;
+  }
+}
+.second-row-title {
+  font-weight: 500;
+  @media (max-width: 811px) {
+    text-align: center;
+  }
+}
+
+.topics-list-main {
+  padding: 7rem 2rem 3rem 2rem;
+  @media (max-width: 420px) {
+    padding-top: 3rem;
+  }
+}
+
+.row-topic {
+  margin-bottom: 2rem;
+  @media (max-width: 420px) {
+    margin-bottom: 0;;
+  }
+}
+
+
+.card {
+  border: 2px solid black;
+  border-radius: 12px;
+  display: flex;
+  @media (max-width: 420px) {
+    margin-bottom: 2rem;
+  }
+
+}
+
+.with-shadow {
+  box-shadow: 10px 10px 0px 0px rgba(129, 173, 200);
+  @media (max-width: 420px) {
+    box-shadow: none;
+  }
+}
+.cover {
+  padding: 2rem 1rem 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  @media (max-width: 420px) {
+    padding: 0 0 0 1.5rem;
+  }
+}
+
+.card-desc {
+  padding: 3rem 3rem 3rem 0rem;
+  @media (max-width: 420px) {
+    padding: 2rem 2.5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   }
+}
+.card-hr {
+  margin: 1rem 0rem 0.5rem 0rem;
+  @media (max-width: 811px) {
+    display: none;
+   }
+}
+.card-topic-theme {
+  font-size: 14px;
+  font-weight: 700;
+  @media (max-width: 420px) {
+    display: none;
+  }
+}
+
+.card-topic-title {
+  font-weight: 700;
+  font-size: 16px;
+  @media (max-width: 420px) {
+   color: var(--text-color-bl) !important;
+  }
+}
+.card-topic-desc {
+  font-size: 14px;
+  color: var(--text-color-light);
+  -webkit-line-clamp: 2;
+	line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+  @media (max-width: 811px) {
+    display: none;
+   }
+}
+
+.sparkle {
+
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  right: 0;
+  top: 0;
+  margin-top: -7rem;
+  margin-right: -7rem;
+  @media (max-width: 420px) {
+    display: none;
+  }
+
+}
+
+.show-all-topics {
+  display: flex;
+  justify-content: center;
+}
+
+.show-all-topics .my-btn-outline-black {
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 16px;
+}
+
+.show-all-topics .my-btn-outline-black:hover {
+  border: 2px solid black;
+  background-color: #fff;
+  color: black;
+  box-shadow: none;
+}
+
+.directories-main {
+  background-color: var(--bg-color-colored);
+  padding: 7rem 15rem 5rem 15rem;
+  @media (max-width: 811px) {
+    padding: 7rem 5rem 5rem 5rem;
+  }
+}
+
+.directories-list {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.first-row-dir {
+  margin-bottom: 5rem;
+  @media (max-width: 811px) {
+    margin: 0;
+  }
+}
+
+
+
+.directory-desc {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  @media (max-width: 811px) {
+    margin-bottom: 2rem;
+  }
+}
+
+.directory-img {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 2rem;
+}
+.dir-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.dir-subtitle {
+  font-size: 12px;
+  width: 70%;
+  
+}
+
+/*======================== FOOTER RULES ========================*/
+
+
+.footer-content {
+  padding: 2rem 5rem 2rem 5rem;
+  @media (max-width: 811px) {
+    padding: 2rem 2rem 2rem 2rem;  
+  }
+}
+
+.footer-logo {
+  font-weight: 500;
+  color: var(--text-color-light);
+  font-size: 14px;
+
+}
+
+.footer-row {
+  @media (max-width: 811px) {
+    display: flex;
+    flex-direction: column; }
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-link {
+  margin-bottom: 2rem;
+  @media (max-width: 811px) {
+    margin-bottom: 1rem;
+    white-space: nowrap;
+   }
+  
+}
+.colored {
+  color: var(--text-color-red);
+}
+
+.footer-bottom {
+  padding: 2rem 5rem 2rem 5rem;
+  
+  
+}
+
+.footer-bottom-text {
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 811px) {
+   flex-direction: column;
+   align-items: center;
+  }
+}
+
+pre {
+  color: var(--text-color-light);
+  font-family: Montserrat Alternates;
+  font-size: 12px;
+  font-weight: 500;
+  @media (max-width: 811px) {
+    white-space: normal;
+    text-align: center;
+  }
+}
