@@ -14,53 +14,8 @@
   <div class="wrapper">
 
     <header class="header">
-      <div class="header-top">
-        <div class="row">
-          <div class="col-md-6">
-            <ul class="menu">
-              <li class="menu-item sm-logo">
-                <div class="logo">
-                  <img src="{% static 'learning_english/img/logo.svg' %}" alt="">
-                </div>
-              </li>
-              <li class="menu-item">
-                <a href="">Главная</a>
-              </li>
-              <li class="menu-item">
-                <a class="menu-link" href="">О нас</a>
-              </li>
-              <li class="menu-item with-space">
-                <div class="lessons">Уроки</div>
-                <div class="dropdown">
-                  <div class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{% static 'learning_english/img/ic-arrow-down.svg' %}" alt="">
-                  </div>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Грамматика</a></li>
-                    <li><a class="dropdown-item" href="#">Времена</a></li>
-                    <li><a class="dropdown-item" href="#">Говорение</a></li>
-                    <li><a class="dropdown-item" href="#">Говорение</a></li>
-                    <li><a class="dropdown-item" href="#">Говорение</a></li>
-                  </ul>
-                </div> 
-              </li>
-              <li class="menu-item">
-                
-              </li>
-            </ul> 
-          </div>
-          <div class="col-md-6 buttons-auth"> 
-            <ul class="buttons-auth">
-              <li>
-                <div class="btn my-btn-outline">Регистрация</div>
-              </li>
-              <li>
-                <button class="btn my-btn-outline-black">Войти</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      {% include 'learning_english/includes/header-top.html' %}
+      
       <div class="header-middle">
         <div class="row">
           <div class="col-2 shapes">
@@ -255,47 +210,8 @@
         </div>
       </div>
     </main>
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="row">
-
-          <div class="col-8">
-            <div class="row">
-              <div class="col footer-logo">
-                <img src="{% static 'learning_english/img/logo.svg' %}" alt="">
-                Начни прямо сейчас
-              </div>
-              
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="row footer-row">
-              <div class="col-6 footer-links">
-                <a href="" class="footer-link">О нас</a>
-                <a href="" class="footer-link colored">Грамматика</a>
-                <a href="" class="footer-link">Говорение</a>
-              </div>
-              <div class="col-6 footer-links">
-                <a href="" class="footer-link colores">Тексты</a>
-                <a href="" class="footer-link">Времена</a>
-                <a href="" class="footer-link colored">Игра</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <hr>
-
-        <div class="footer-bottom-text">
-          <pre class="light-text">Разработан в ходе обучения в университете. </pre>
-          
-         <div class="colored">Eng for You</div> 
-          
-        </div>
-      </div>
-    </footer>
+    {% include 'learning_english/includes/footer.html' %}
+    
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

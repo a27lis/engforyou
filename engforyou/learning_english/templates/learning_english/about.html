@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'learning_english/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'learning_english/img/logo_white_bg.png' %}" type="image/png">
+    <title>О нас</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+          {% include 'learning_english/includes/header-top.html' %}
+            <div class="header-middle">
+              <div class="row">
+                <div class="col-2 shapes">
+                  <img src="{% static 'learning_english/img/shape-swirl.svg' %}" alt="">
+                </div>
+                <div class="col-8 container-col">
+                  <div class="row first-text">Про</div>
+                  <div class="row second-text about-header">Твой Английский</div>
+                </div>
+                <div class="col-2 shapes p-0">
+                  <img class="stars" src="{% static 'learning_english/img/shape-stars.svg' %}" alt="">
+                </div>
+              </div>
+            </div>
+            
+          </header>
+
+          <main>
+            <div class="row sparkle-row">
+                <div class="col-4">
+                    <div class="col-sparkle">
+
+                        <img class="sparkle-about" src="{% static 'learning_english/img/sparkle-left.svg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="about-title">
+                    <div class="title about-title-rel">О нас и история</div>
+                    
+            </div>
+
+            <div class="about-p">
+                <div class="row">
+                    <div class="col-6 about-col-p">
+                        <p>Eu non diam phasellus vestibulum lorem. Fringilla est ullamcorper eget nulla facilisi etiam dignissim. Id diam vel quam elementum pulvinar.
+                        </p>
+                        <p>Elementum eu facilisis sed odio morbi quis commodo.
+                            Sed odio morbi quis commodo odio aenean sed adipiscing odio diam. uno fablotoson louw uit.
+                        </p>
+                    </div>
+                    <div class="col-6 about-col-p">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam pellentesque at bibendum euismod tellus duis cursus dignissim odio. Sit vulputate et integer in. Sit vel, senectus iaculis morbi. Amet interdum imperdiet laoreet morbi tincidunt fermentum, libero. Ante enim eget. 
+                        </p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="creator">
+                <div class="creator-title">
+                    <div class="title about-title">
+                        Основатель
+                    </div>
+                </div>
+
+                <div class="col-4 align-self-center">
+                  <div class="card">
+                    <div class="row">
+                      <div class="col-4-md col-6 cover">
+                          <img src="{% static 'learning_english/img/avatar.png' %}" alt="">
+                      </div>
+                      <div class="col-8-md col-6 card-desc">
+                        <div class="creator-pic"><img src="{% static 'learning_english/img/Face_1.svg' %}" alt=""></div>
+                        <div class="creator-info">
+
+                          <div class="creator-name">Лисейкина Анастасия</div>
+                          <div class="creator-desc">Студент 4 курса УлГУ направления МОАИС</div>
+                          <hr class="card-hr" style="margin-right: 2rem;">
+                          <div class="links-creator">
+                            
+                            <div class="div-link">
+                              <a href="https://t.me/a27lis">
+                                <img class="link-ic" src="{% static 'learning_english/img/ic-telegram.svg' %}" alt="">
+                              </div></a>
+                            <div class="div-link">
+                              <a href="https://github.com/a27lis">
+                                <img class="link-ic" src="{% static 'learning_english/img/ic-github.svg' %}" alt="">
+                              </div></a>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </main>
+          {% include 'learning_english/includes/footer.html' %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

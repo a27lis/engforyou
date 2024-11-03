@@ -1,0 +1,65 @@
+{% load static %}
+<div class="header-top">
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="menu">
+          <li class="menu-item sm-logo">
+            <div class="logo">
+              <img src="{% static 'learning_english/img/logo.svg' %}" alt="">
+            </div>
+          </li>
+          <li class="menu-item">
+            <a href="{% url 'index' %}">Главная</a>
+          </li>
+          <li class="menu-item">
+            <a class="menu-link" href="{% url 'about' %}">О нас</a>
+          </li>
+          <li class="menu-item with-space">
+            <div class="lessons">Уроки</div>
+            <div class="dropdown">
+              <div class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{% static 'learning_english/img/ic-arrow-down.svg' %}" alt="">
+              </div>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'topics' %}">Тексты</a></li>
+                <li><a class="dropdown-item" href="#">Времена</a></li>
+                <li><a class="dropdown-item" href="#">Говорение</a></li>
+                <li><a class="dropdown-item" href="#">Говорение</a></li>
+                <li><a class="dropdown-item" href="#">Говорение</a></li>
+              </ul>
+            </div> 
+          </li>
+          <li class="menu-item">
+            
+          </li>
+        </ul> 
+      </div>
+      <div class="col-md-6 buttons-auth"> 
+        <ul class="buttons-auth">
+          {% if user.is_authenticated %}
+            <li>
+              <div class="username">Welcome, {{ user.username }}!</div>
+            </li>
+            <li>
+              <a href="{% url 'users:logout' %}">
+
+              <button class="btn my-btn-outline-black">Выйти</button></a>
+            </li>
+            
+            {% else %}
+          <li>
+            
+            <a href="{% url 'users:register' %}">
+            <div class="btn my-btn-outline">
+              Регистрация</div></a>
+          </li>
+          <li>
+            <a href="{% url 'users:login' %}">
+
+            <button class="btn my-btn-outline-black">Войти</button></a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>

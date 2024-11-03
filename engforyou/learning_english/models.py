@@ -41,6 +41,9 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def theme_as_title(self):
+        return self.theme.split('-')
 
 
 
