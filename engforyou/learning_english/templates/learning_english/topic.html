@@ -1,4 +1,6 @@
 {% load static %}
+{% load lesson_extras %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'learning_english/css/style.css' %}">
     <link rel="shortcut icon" href="{% static 'learning_english/img/logo_white_bg.png' %}" type="image/png">
-    <title>Тексты</title>
+    <title>Грамматика</title>
 </head>
 <body>
     <div class="wrapper">
@@ -19,7 +21,8 @@
                     <img src="{% static 'learning_english/img/shape-swirl.svg' %}" alt="">
                   </div>
                   <div class="col-8 container-col">
-                    <div class="row first-text">Тексты</div>
+                    <div class="row first-text header-topic-title">{{ topic.title }}</div>
+                    <div class="row slogan header-topic-theme">{{ topic.theme }}</div>
                   </div>
                   <div class="col-2 shapes p-0">
                     <img class="stars" src="{% static 'learning_english/img/shape-stars.svg' %}" alt="">
@@ -27,32 +30,11 @@
                 </div>
               </div>
         </header>
-
         <main>
-            <div class="topics-list">
-                <div class="themed">
-
-                    {% regroup topics_list by theme as theme_groupings %}
-                        {% for theme in theme_groupings %}
-        
-                            <div class="topic-theme">
-        
-                                {{ theme.grouper }}
-                            </div>
-                            <ul>
-                            {% for text in theme.list %}
-                            <a href="{% url 'detail_topic' text.id %}">
-
-                                <li class="li-topic">{{ text }}</li>
-                            </a>    
-                            {% endfor %}
-                            </ul>
-                    {% endfor %}
-                </div>
-
+            <div class="lesson_content">
+                {{ lesson.article|convert_markdown|safe }}
             </div>
         </main>
-
         {% include 'learning_english/includes/footer.html' %}
     </div>
     

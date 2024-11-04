@@ -5,5 +5,9 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("about", views.about, name="about"),
     path("topics", views.topics, name="topics"),
-    path("topics/<int:topic_id>/", views.detail, name="detail"),
+    path("topics/<int:pk>/", views.detail_topic, name='detail_topic'),
+    path("lessons", views.lessons, name="lessons"),
+    path('lessons/<int:pk>/', views.detail_lesson, name='detail_lesson'),
+    path('random/', views.random_url, name='random_url'),
+    
 ]

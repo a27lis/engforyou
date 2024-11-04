@@ -47,36 +47,41 @@
         <div class="topics-list-main">
           <div class="row row-topic">
             <div class="col">
-              <div class="card with-shadow">
-                <div class="row">
-                  <div class="col-4-md col-6 cover">
-                      <img src="{% static 'learning_english/img/topics/cover1.png' %}" alt="">
-                  </div>
-                  <div class="col-8-md col-6 card-desc">
-                    <div class="card-topic-theme colored">Тема 1</div>
-                    <div class="colored card-topic-title">The United Kingdom</div>
-                    <hr class="card-hr">
-                    <div class="card-topic-desc">{{ topics_list.0.article }}</div>
+              <a href="{% url 'detail_topic' 1 %}">
+                <div class="card with-shadow">
+                  <div class="row">
+                    <div class="col-4-md col-6 cover">
+                        <img src="{% static 'learning_english/img/topics/cover1.png' %}" alt="">
+                    </div>
+                    <div class="col-8-md col-6 card-desc">
+                      <div class="card-topic-theme colored">Тема 1</div>
+                      <div class="colored card-topic-title">The United Kingdom</div>
+                      <hr class="card-hr">
+                      <div class="card-topic-desc">{{ topics_list.0.article }}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
             <div class="col">
-              <div class="card">
-                <img class="sparkle" src="{% static 'learning_english/img/sparkle.svg' %}" alt="">
-                <div class="row">
-                  <div class="col-4-md col-6 cover">
-                      <img src="{% static 'learning_english/img/topics/cover2.png' %}" alt="">
+              <a href="{% url 'detail_topic' 2 %}">
+
+                <div class="card">
+                  <img class="sparkle" src="{% static 'learning_english/img/sparkle.svg' %}" alt="">
+                  <div class="row">
+                    <div class="col-4-md col-6 cover">
+                        <img src="{% static 'learning_english/img/topics/cover2.png' %}" alt="">
+                    </div>
+                    <div class="col-8-md col-6 card-desc">
+                      <div class="card-topic-theme colored">Тема 2</div>
+                      <div class="card-topic-title">UK Political System</div>
+                      <hr class="card-hr">
+                      <div class="card-topic-desc">{{ topics_list.1.article }}</div>
+                    </div>
+                    
                   </div>
-                  <div class="col-8-md col-6 card-desc">
-                    <div class="card-topic-theme colored">Тема 2</div>
-                    <div class="card-topic-title">UK Political System</div>
-                    <hr class="card-hr">
-                    <div class="card-topic-desc">{{ topics_list.1.article }}</div>
-                  </div>
-                  
                 </div>
-              </div>
+              </a>
               
             </div>
             
@@ -86,71 +91,86 @@
           </div>
           <div class="row row-topic">
             <div class="col">
-              <div class="card">
-                <div class="row">
-                  <div class="col-4-md col-6 cover">
-                      <img src="{% static 'learning_english/img/topics/cover3.png' %}" alt="">
-                  </div>
-                  <div class="col-8-md col-6 card-desc">
-                    <div class="card-topic-theme colored">Тема 3</div>
-                    <div class="card-topic-title">The Kremlin</div>
-                    <hr class="card-hr">
-                    <div class="card-topic-desc">{{ topics_list.2.article }}</div>
+              <a href="{% url 'detail_topic' 1 %}">
+
+                <div class="card">
+                  <div class="row">
+                    <div class="col-4-md col-6 cover">
+                        <img src="{% static 'learning_english/img/topics/cover3.png' %}" alt="">
+                    </div>
+                    <div class="col-8-md col-6 card-desc">
+                      <div class="card-topic-theme colored">Тема 3</div>
+                      <div class="card-topic-title">The Kremlin</div>
+                      <hr class="card-hr">
+                      <div class="card-topic-desc">{{ topics_list.2.article }}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
             <div class="col">
-              <div class="card with-shadow">
-                <div class="row">
-                  <div class="col-4-md col-6 cover">
-                      <img src="{% static 'learning_english/img/topics/cover4.png' %}" alt="">
-                  </div>
-                  <div class="col-8-md col-6 card-desc">
-                    <div class="card-topic-theme colored">Тема 4</div>
-                    <div class="card-topic-title colored">Schooling in the United States</div>
-                    <hr class="card-hr">
-                    <div class="card-topic-desc">{{ topics_list.3.article }}</div>
+              <a href="{% url 'detail_topic' 1 %}">
+
+                <div class="card with-shadow">
+                  <div class="row">
+                    <div class="col-4-md col-6 cover">
+                        <img src="{% static 'learning_english/img/topics/cover4.png' %}" alt="">
+                    </div>
+                    <div class="col-8-md col-6 card-desc">
+                      <div class="card-topic-theme colored">Тема 4</div>
+                      <div class="card-topic-title colored">Schooling in the United States</div>
+                      <hr class="card-hr">
+                      <div class="card-topic-desc">{{ topics_list.3.article }}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <div class="card with-shadow">
-                <div class="row">
-                  <div class="col-4-md col-6 cover">
-                      <img src="{% static 'learning_english/img/topics/cover5.png' %}" alt="">
-                  </div>
-                  <div class="col-8-md col-6 card-desc">
-                    <div class="card-topic-theme colored">Тема 5</div>
-                    <div class="card-topic-title colored">Sports in Great Britain</div>
-                    <hr class="card-hr">
-                    <div class="card-topic-desc">{{ topics_list.4.article }}</div>
+              <a href="{% url 'detail_topic' 1 %}">
+
+                <div class="card with-shadow">
+                  <div class="row">
+                    <div class="col-4-md col-6 cover">
+                        <img src="{% static 'learning_english/img/topics/cover5.png' %}" alt="">
+                    </div>
+                    <div class="col-8-md col-6 card-desc">
+                      <div class="card-topic-theme colored">Тема 5</div>
+                      <div class="card-topic-title colored">Sports in Great Britain</div>
+                      <hr class="card-hr">
+                      <div class="card-topic-desc">{{ topics_list.4.article }}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
             <div class="col">
-              <div class="card">
-                <div class="row">
-                  <div class="col-4-md col-6 cover">
-                      <img src="{% static 'learning_english/img/topics/cover6.png' %}" alt="">
-                  </div>
-                  <div class="col-8-md col-6 card-desc">
-                    <div class="card-topic-theme colored">Тема 6</div>
-                    <div class="card-topic-title">Abraham Lincoln</div>
-                    <hr class="card-hr">
-                    <div class="card-topic-desc">{{ topics_list.5.article }}</div>
+              <a href="{% url 'detail_topic' 1 %}">
+
+                <div class="card">
+                  <div class="row">
+                    <div class="col-4-md col-6 cover">
+                        <img src="{% static 'learning_english/img/topics/cover6.png' %}" alt="">
+                    </div>
+                    <div class="col-8-md col-6 card-desc">
+                      <div class="card-topic-theme colored">Тема 6</div>
+                      <div class="card-topic-title">Abraham Lincoln</div>
+                      <hr class="card-hr">
+                      <div class="card-topic-desc">{{ topics_list.5.article }}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
         <div class="show-all-topics">
-          <button class="btn my-btn-outline-black">Посмотреть все тексты</button>
+          <a href="{% url 'topics' %}">
+
+            <button class="btn my-btn-outline-black">Посмотреть все тексты</button>
+          </a>
         </div>
         
       </div>
@@ -204,8 +224,10 @@
           </div>
         </div>
         <div class="choose-random">
-          <div class="show-all-topics">
-            <button class="btn my-btn-outline-black">Выбрать случайный</button>
+          <div class="show-all-topics choose-random-btn">
+            <a href="{% url 'random_url' %}">
+              <button class="btn my-btn-outline-black">Выбрать случайный</button>
+            </a>
           </div>
         </div>
       </div>
