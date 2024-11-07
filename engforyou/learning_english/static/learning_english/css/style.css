@@ -294,6 +294,13 @@ ul.buttons-auth li {
   @media (max-width: 420px) {
     padding: 0 0 0 1.5rem;
   }
+  
+}
+
+.creator-cover {
+  @media (max-width: 420px) {
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
 }
 
 .card-desc {
@@ -500,6 +507,13 @@ pre {
   }
 }
 
+.colored-footer {
+  color: var(--text-color-red);
+  @media (max-width: 811px) {
+    color: var(--text-color-bl);
+  }
+}
+
 /*======================== ABOUT RULES ========================*/
 
 .about-title {
@@ -553,6 +567,9 @@ pre {
 
 .about-p {
   padding: 5rem 10rem 0rem 10rem;
+  @media (max-width: 412px) {
+    padding: 2rem;
+   }
 }
 
 .about-col-p {
@@ -573,20 +590,36 @@ pre {
 .creator-pic {
   display: flex;
   justify-content: end;
+  @media (max-width: 811px) {
+    display: none;
+   }
 }
 
 .links-creator {
   display: flex;
   justify-content: end;
+  @media (max-width: 811px) {
+    justify-content: start;
+   }
+
+   @media (max-width: 412px) {
+    justify-content: end;
+   }
 }
 
 .creator-name {
   font-weight: 700;
   font-size: 30px;
+  @media (max-width: 811px) {
+    font-size: 14px;
+   }
 }
 .creator-desc {
   color: var(--text-color-light);
   font-size: 14px;
+  @media (max-width: 412px) {
+    font-size: 12px;
+   }
 }
 .creator-info {
   position: absolute;
@@ -615,7 +648,7 @@ pre {
   align-items: center;
   flex-direction: column;
   padding: 2rem 20rem 5rem 20rem;
-  @media (max-width: 420px) {
+  @media (max-width: 811px) {
     padding: 2rem;
     text-align: center;
   }
@@ -656,7 +689,7 @@ color: var(--text-color-red);
 
 .lesson_content {
   padding: 5rem 15rem 5rem 15rem;
-  @media (max-width: 420px) {
+  @media (max-width: 811px) {
     padding: 2rem;
   }
 }
@@ -724,4 +757,72 @@ table tbody tr td:last-child {
   @media (max-width: 412px) {
     display: none;
    }
+}
+
+.questions-block {
+  padding: 5rem 15rem 5rem 15rem;
+  background-color: var(--bg-color-colored);
+  @media (max-width: 811px) {
+    padding: 2rem;
+   }
+}
+
+.answer-box {
+  position: relative;
+}
+
+.question-sparkle {
+  position: absolute;
+  margin-left: -2.5rem;
+  margin-top: -2rem;
+  @media (max-width: 811px) {
+    display: none;
+   }
+}
+.translate-sparkle {
+  position: absolute;
+  margin-right: -8rem;
+  margin-top: -8rem;
+  @media (max-width: 811px) {
+    display: none;
+   }
+}
+
+.translate-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-left: auto;
+
+}
+
+
+.answer {
+  padding: 1rem;
+  
+}
+
+ol li {
+  color: var(--text-color-red);
+}
+li .li-answer {
+  color: var(--text-color-bl);
+  margin-left: 0.5rem;
+}
+
+.answer-title {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+
+/*======================== TIMES RULES ========================*/
+
+.times {
+  padding: 15rem;
+  @media (max-width: 811px) {
+    padding: 2rem;
+   }
+
 }

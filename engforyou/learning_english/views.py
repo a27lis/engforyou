@@ -24,6 +24,9 @@ def index(request):
 def about(request):
     return render(request, "learning_english/about.html")
 
+def times(request):
+    return render(request, "learning_english/times.html")
+
 def topics(request):
     topics_list = Topic.objects.all()
     context = {"topics_list": topics_list}
