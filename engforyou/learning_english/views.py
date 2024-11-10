@@ -6,12 +6,12 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.urls import reverse
 
-from .models import Topic, Lesson
+from .models import Topic, Lesson, SpeakingTheme
 
 import random
 
 def random_url(request):
-    urls = ['topics', 'lessons', 'about']
+    urls = ['topics', 'lessons', 'about', 'speaking', 'verbs', 'times']
     random_url = random.choice(urls)
     return redirect(reverse(random_url))
 
@@ -26,6 +26,15 @@ def about(request):
 
 def times(request):
     return render(request, "learning_english/times.html")
+
+def verbs(request):
+    return render(request, "learning_english/verbs.html")
+
+def speaking(request):
+    speaking_list = SpeakingTheme.objects.all()
+    random_theme = SpeakingTheme.objects.order_by('?')[0]
+    context = {"speaking_list": speaking_list, "random_theme": random_theme}
+    return render(request, "learning_english/speaking.html", context)
 
 def topics(request):
     topics_list = Topic.objects.all()

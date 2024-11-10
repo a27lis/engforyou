@@ -185,41 +185,55 @@
         <div class="directories-list">
           <div class="row first-row-dir">
             <div class="col-md-4 col-12">
-              <div class="directory-desc">
-                <img class="directory-img" src="{% static 'learning_english/img/ic-grammar.svg' %}" alt="">
-                <div class="dir-title">Грамматика</div>
-                <div class="dir-subtitle">Адаптация знаменитого курса Рэймонда Мёрфи</div>
-              </div>
+              <a href="{% url 'lessons' %}">
+                <div class="directory-desc">
+                  <img class="directory-img" src="{% static 'learning_english/img/ic-grammar.svg' %}" alt="">
+                  <div class="dir-title">Грамматика</div>
+                  <div class="dir-subtitle">Адаптация знаменитого курса Рэймонда Мёрфи</div>
+                </div>
+              </a>
             </div>
             <div class="col-md-4 col-12">
-              <div class="directory-desc">
-                <img class="directory-img" src="{% static 'learning_english/img/ic-speaking.svg' %}" alt="">
-                <div class="dir-title">Говорение</div>
-                <div class="dir-subtitle">Улучшай понимание английской речи и свое произношение</div>
-              </div>
+              <a href="{% url 'speaking' %}">
+                <div class="directory-desc">
+                  <img class="directory-img" src="{% static 'learning_english/img/ic-speaking.svg' %}" alt="">
+                  <div class="dir-title">Говорение</div>
+                  <div class="dir-subtitle">Улучшай понимание английской речи и свое произношение</div>
+                </div>
+              </a>
+              
             </div>
             <div class="col-md-4 col-12">
-              <div class="directory-desc">
-                <img class="directory-img" src="{% static 'learning_english/img/ic-game.svg' %}" alt="">
-                <div class="dir-title">Игра</div>
-                <div class="dir-subtitle">Игра на память, чтобы запомнить больше слов</div>
-              </div>
+              <a href="{% url 'about' %}">
+                <div class="directory-desc">
+                  <img class="directory-img" src="{% static 'learning_english/img/ic-game.svg' %}" alt="">
+                  <div class="dir-title">О нас</div>
+                  <div class="dir-subtitle">Ознакомьтесь с нашей историей и создателем</div>
+                </div>
+              </a>
+              
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-md-4 col-12">
-              <div class="directory-desc">
-                <img class="directory-img" src="{% static 'learning_english/img/ic-times.svg' %}" alt="">
-                <div class="dir-title">Времена глаголов</div>
-                <div class="dir-subtitle">Упражняйся в составлении предложений в нужном времени</div>
-              </div>
+              <a href="{% url 'times' %}">
+                <div class="directory-desc">
+                  <img class="directory-img" src="{% static 'learning_english/img/ic-times.svg' %}" alt="">
+                  <div class="dir-title">Времена глаголов</div>
+                  <div class="dir-subtitle">Упражняйся в составлении предложений в нужном времени</div>
+                </div>
+              </a>
+              
             </div>
             <div class="col-md-4 col-12">
-              <div class="directory-desc">
-                <img class="directory-img" src="{% static 'learning_english/img/ic-verbs.svg' %}" alt="">
-                <div class="dir-title">Неправильные глаголы</div>
-                <div class="dir-subtitle">Изучи таблицу неправильных глаголов</div>
-              </div>
+              <a href="{% url 'verbs' %}">
+                <div class="directory-desc">
+                  <img class="directory-img" src="{% static 'learning_english/img/ic-verbs.svg' %}" alt="">
+                  <div class="dir-title">Неправильные глаголы</div>
+                  <div class="dir-subtitle">Изучи таблицу неправильных глаголов</div>
+                </div>
+              </a>
+              
             </div>
           </div>
         </div>

@@ -20,6 +20,20 @@ class Lesson(models.Model):
         return self.title
 
 
+class SpeakingTheme(models.Model):
+    title = models.TextField()
+    question_1 = models.TextField()
+    question_2 = models.TextField()
+    question_3 = models.TextField()
+    
+    class Meta:
+        managed = True
+        
+
+    def __str__(self):
+        return self.title
+    
+
 class Topic(models.Model):
     title = models.TextField()
     theme = models.TextField()

@@ -184,6 +184,7 @@ ul.buttons-auth li {
 }
 .first-text {
   font-size: 96px;
+  text-align: center;
   @media (max-width: 811px) {
     font-size: 40px;
     text-align: center;
@@ -407,9 +408,14 @@ ul.buttons-auth li {
   flex-direction: column;
   text-align: center;
   align-items: center;
+  transition: 0.3s;
   @media (max-width: 811px) {
     margin-bottom: 2rem;
   }
+}
+
+.directory-desc:hover {
+  transform: scale(1.02);
 }
 
 .directory-img {
@@ -676,6 +682,7 @@ color: var(--text-color-red);
 /*======================== GRAMMAR RULES ========================*/
 
 .lesson-title {
+  text-align: center;
   @media (max-width: 420px) {
     font-size: 20px;
   }
@@ -803,7 +810,7 @@ table tbody tr td:last-child {
   
 }
 
-ol li {
+ol .li-ans {
   color: var(--text-color-red);
 }
 li .li-answer {
@@ -825,4 +832,57 @@ li .li-answer {
     padding: 2rem;
    }
 
+}
+
+/*======================== SPEAKING RULES ========================*/
+
+.random-speaking {
+  padding: 5rem 15rem 5rem 15rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 811px) {
+    padding: 2rem;
+   }
+}
+
+.random-ul {
+  list-style-type: none;
+  color: var(--text-color-light);
+  
+}
+
+
+.random-speaking-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.all-speaking {
+  background-color: var(--bg-color-colored);
+  padding: 5rem;
+  text-align: center;
+  @media (max-width: 811px) {
+    padding: 2rem;
+   }
+}
+
+.all-speaking-title {
+  font-size: 40px;
+}
+
+.all-speaking-title-box {
+  position: relative;
+}
+.all-speaking-theme {
+  margin-bottom: 1.5rem;
+}
+
+.all-theme-title {
+  font-weight: 700;
+  font-size: 20px;
+  
 }
