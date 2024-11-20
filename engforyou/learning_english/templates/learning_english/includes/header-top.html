@@ -38,7 +38,7 @@
         <ul class="buttons-auth">
           {% if user.is_authenticated %}
             <li>
-              <div class="username">Welcome, {{ user.username }}!</div>
+              <div class="username">Welcome, {{ user.first_name }}!</div>
             </li>
             <li>
               <a href="{% url 'users:logout' %}">
@@ -49,12 +49,12 @@
             {% else %}
           <li>
             
-            <a href="{% url 'users:register' %}">
+            <a href="{% url 'users:register'%}?path={{ request.path }} ">
             <div class="btn my-btn-outline">
               Регистрация</div></a>
           </li>
           <li>
-            <a href="{% url 'users:login' %}">
+            <a href="{% url 'users:login' %}?next={{ request.path }}">
 
             <button class="btn my-btn-outline-black">Войти</button></a>
           </li>

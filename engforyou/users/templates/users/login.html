@@ -11,13 +11,16 @@
     <title>Вход</title>
     <style>
         body {
+            height: auto;
             background-color: #F7EDE8;
-            margin: 0;
-            padding: 0;
+            margin: 5rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            @media (max-width: 811px) {
+                margin: 1rem;
+                height: auto;
+              }
         }
         .container {
             background-color: #fff;
@@ -26,6 +29,9 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
+            @media (max-width: 811px) {
+                margin-bottom: 1rem;
+              }
         }
         h2 {
             margin-bottom: 20px;
@@ -59,6 +65,7 @@
         .messages {
             margin-top: 15px;
             color: #CD4631;
+            font-size: 12px;
         }
         a {
             text-decoration:underline;
@@ -74,10 +81,16 @@
         <h2>Вход</h2>
         <form method="post">
             {% csrf_token %}
-            <label for="username">Логин:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
+            
+            <div class="messages">
+                {% for error in form.non_field_errors %}
+                    <div class="error-message">{{ error }}</div>
+                {% endfor %}
+            </div>
+            {% for f in form %}
+            <label for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
             <button type="submit">Войти</button>
         </form>
         <a href="{% url 'users:register' %}">Зарегистрироваться</a>

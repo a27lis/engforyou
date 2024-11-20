@@ -1,24 +1,31 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
+from django.views.generic import CreateView
+from django.urls import reverse, reverse_lazy
+
+from .forms import LoginUserForm, RegisterUserForm
 
 
-def login_user(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('index')
-        else:
-            messages.error(request, 'Неверные данные')
-    return render(request, 'users/login.html')
+class LoginUser(LoginView):
+    form_class = LoginUserForm
+    template_name =  'users/login.html'
+    
+    
+ 
+class RegisterUser(CreateView):
+    form_class = RegisterUserForm
+    template_name = 'users/register.html'
+    def get_success_url(self):
+        path = self.request.GET.get('path')
+        if path:
+            return f"{reverse_lazy('users:login')}?next={path}"
+        return reverse_lazy('users:login')
         
-def register(request):
+def register1(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
