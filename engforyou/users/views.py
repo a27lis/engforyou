@@ -11,7 +11,7 @@ from .forms import LoginUserForm, RegisterUserForm, ProfileUserForm, UserPasswor
 class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name =  'users/login.html'
-    
+   
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'users/register.html'
