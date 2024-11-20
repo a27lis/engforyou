@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'id': 'username', 'required': True}))
+    username = forms.CharField(label='Логин или email', widget=forms.TextInput(attrs={'id': 'username', 'required': True}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'id': 'password', 'required': True}))
     
 

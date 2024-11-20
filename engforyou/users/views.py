@@ -14,8 +14,6 @@ class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name =  'users/login.html'
     
-    
- 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'users/register.html'
@@ -25,18 +23,6 @@ class RegisterUser(CreateView):
             return f"{reverse_lazy('users:login')}?next={path}"
         return reverse_lazy('users:login')
         
-def register1(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        if User.objects.filter(username=username).exists():
-            messages.error(request, 'Пользователь уже существует')
-        else:
-            user = User.objects.create_user(username=username, password=password)
-            user.save()
-            messages.success(request, 'Аккаунт успешно создан')
-            return redirect('users:login')
-    return render(request, 'users/register.html')
 
 def logout_user(request):
     logout(request)
