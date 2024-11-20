@@ -38,7 +38,7 @@
         <ul class="buttons-auth">
           {% if user.is_authenticated %}
             <li>
-              <div class="username">Welcome, {{ user.first_name }}!</div>
+              <div class="username"><a class="username" href="{% url 'users:profile' %}">Welcome, {{ user.first_name }}!</a></div>
             </li>
             <li>
               <a href="{% url 'users:logout' %}">

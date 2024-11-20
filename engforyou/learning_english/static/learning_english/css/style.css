@@ -127,6 +127,15 @@ ul.buttons-auth li {
   margin: 0 0 0 0.5rem;
 }
 
+.username {
+  transition: 0.3s;
+}
+
+.username:hover {
+  cursor: pointer;
+  color: var(--text-color-red);
+  text-decoration: underline;
+}
 
 .my-btn-outline {
   border-radius: 8px;
