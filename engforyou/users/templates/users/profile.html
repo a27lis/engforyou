@@ -20,6 +20,26 @@
                 margin-bottom: 1rem;
               }
         }
+        select {
+          width: 200px; /* Ширина */
+          margin-bottom: 0.5rem;
+          padding: 10px; /* Отступы */
+          font-size: 16px; /* Размер шрифта */
+          color: #333; /* Цвет текста */
+          background-color: white; /* Цвет фона */
+          border: 1px solid #e1d7d2; /* Цвет границы */
+          border-radius: 5px; /* Закругление углов */
+          appearance: none; /* Убираем стандартный стиль */
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="%23333"/></svg>'); /* Стрелка */
+          background-repeat: no-repeat;
+          background-position: right 10px center; /* Позиция стрелки */
+          background-size: 10px; /* Размер стрелки */
+      }
+      
+      select:focus {
+          border-color: #f7ede8; /* Цвет границы при фокусе */
+          outline: none; /* Убираем стандартный контур */
+      }
         h2 {
             margin-bottom: 20px;
         }
