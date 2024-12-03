@@ -77,6 +77,11 @@
         .change-pass:hover {
             color: #CD4631;
         }
+        .admin {
+          margin-bottom: 10rem;
+          text-align: center;
+          align-self: center;
+        }
     </style>
 </head>
 <body>
@@ -101,7 +106,9 @@
           </header>
 
           <main>
+            
             <div class="container">
+             
 
                 <form method="post">
                     {% csrf_token %}
@@ -113,6 +120,9 @@
                 
                     <p><button type="submit" class="btn my-btn-outline-black">Сохранить</button></p>
                 </form>
+                {% if user.is_superuser %}
+            <a class="change-pass admin" href="{% url 'admin:index' %}">Перейти в админ панель</a>
+          {% endif %}
                 <a class="change-pass" href="{% url 'users:password_change' %}">Сменить пароль</a>
               </div>
            
