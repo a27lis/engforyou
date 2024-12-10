@@ -733,6 +733,7 @@ table thead th {
 	padding: 10px 15px;
 	background: var(--bg-color-colored);
 	font-size: 14px;
+  text-align: center;
 }
 table thead tr th:first-child {
 	border-radius: 8px 0 0 8px;
@@ -746,6 +747,7 @@ table tbody td {
 	padding: 10px 15px;
 	font-size: 14px;
 	vertical-align: top;
+  text-align: center;
 }
 table tbody tr:nth-child(even){
 	background: var(--bg-color-colored);
@@ -894,4 +896,12 @@ li .li-answer {
   font-weight: 700;
   font-size: 20px;
   
+}
+
+
+/*======================== VERBS RULES ========================*/
+
+.table-block {
+  display: flex;
+  padding: 2rem 10rem 2rem 10rem;
 }

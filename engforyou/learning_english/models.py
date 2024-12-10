@@ -26,6 +26,19 @@ class SpeakingTheme(models.Model):
     def __str__(self):
         return self.title
     
+class Verb(models.Model):
+    infinitive = models.TextField()
+    second_form = models.TextField()
+    third_form = models.TextField()
+    translate = models.TextField()
+    
+    class Meta:
+        managed = True
+        
+
+    def __str__(self):
+        return self.infinitive
+    
 
 class Topic(models.Model):
     title = models.TextField()

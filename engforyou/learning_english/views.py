@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.urls import reverse
 
-from .models import Topic, Lesson, SpeakingTheme
+from .models import Topic, Lesson, SpeakingTheme, Verb
 
 import random
 
@@ -28,7 +28,10 @@ def times(request):
     return render(request, "learning_english/times.html")
 
 def verbs(request):
-    return render(request, "learning_english/verbs.html")
+    verbs_list = Verb.objects.all()
+    context = {"verbs_list": verbs_list}
+    return render(request, "learning_english/verbs.html", context)
+    
 
 def speaking(request):
     speaking_list = SpeakingTheme.objects.all()

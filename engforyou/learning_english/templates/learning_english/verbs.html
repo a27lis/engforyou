@@ -29,7 +29,29 @@
               </div>
         </header>
         <main>
-            
+            <div class="table-block">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Infinitive</th>
+                    <th>Past Simple</th>
+                    <th>Participle II</th>
+                    <th>Перевод</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  {% for verb in verbs_list %}
+                  <tr>
+                    <td>{{verb.infinitive}}</td>
+                    <td>{{verb.second_form}}</td>
+                    <td>{{verb.third_form}}</td>
+                    <td>{{verb.translate}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
         </main>
         {% include 'learning_english/includes/footer.html' %}
     </div>
