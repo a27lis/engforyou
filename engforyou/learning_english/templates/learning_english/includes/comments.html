@@ -1,0 +1,90 @@
+<style>
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+  }
+  label {
+      margin-bottom: 5px;
+      text-align: left;
+  }
+  input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  button {
+      padding: 10px;
+      background-color: #CD4631;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  button:hover {
+      background-color: #A83B2A;
+  }
+  .messages {
+      margin-top: 15px;
+      color: #CD4631;
+      font-size: 12px;
+  }
+
+
+  </style>
+
+<div class="commets-block">
+    <h4>Комментарии:</h4>
+    <div class="all-comments">
+
+      {% if comments %}
+        <ul>
+        {% for comment in comments %}
+          <li> <div class="comment-created_at">
+            ({{comment.created_at}})
+
+          </div>
+            {{ comment.author.username }} : {{ comment.text }}</li>
+
+            {% if comment.answer %}
+            <li class="answer-full">
+              <div class="answer-by-admin">
+                Ответ администратора:&nbsp; 
+              </div>
+              <div class="colored">{{ comment.answer }}</div> 
+            </li>
+            {% endif %}
+        {% endfor %}
+        </ul> 
+        {% else %}
+        <ul>
+          <li>Нет комментариев.</li>
+        </ul>
+        
+      {% endif %}
+    </div>
+    
+
+    <div class="add-comment">
+      {% if user.is_authenticated %}  
+
+      <h4>Добавить комментарий:</h4>
+    <form method="post">
+      {% csrf_token %}
+      <div class="messages">
+          {% for error in form.non_field_errors %}
+              <div class="error-message">{{ error }}</div>
+          {% endfor %}
+      </div>
+      {% for f in form %}
+      {{ f }}
+      <div class="form-error">{{ f.errors }}</div>
+      {% endfor %}
+      <button type="submit">Добавить</button>
+    </form>
+  {% endif %} 
+    </div>
+
+    
+</div>

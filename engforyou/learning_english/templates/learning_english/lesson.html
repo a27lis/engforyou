@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'learning_english/css/style.css' %}">
     <link rel="shortcut icon" href="{% static 'learning_english/img/logo_white_bg.png' %}" type="image/png">
     <title>Грамматика</title>
+    
 </head>
 <body>
     <div class="wrapper">
@@ -30,9 +31,11 @@
               </div>
         </header>
         <main>
-            <div class="lesson_content">
-                {{ lesson.article|convert_markdown|safe }}
-            </div>
+          <div class="lesson_content">
+                  {{ lesson.article|convert_markdown|safe }}
+          </div>
+           
+          {% include 'learning_english/includes/comments.html' %}
         </main>
         {% include 'learning_english/includes/footer.html' %}
     </div>

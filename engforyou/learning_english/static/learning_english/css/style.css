@@ -905,3 +905,41 @@ li .li-answer {
   display: flex;
   padding: 2rem 10rem 2rem 10rem;
 }
+
+/*======================== COMMENTS RULES ========================*/
+.commets-block {
+  display: flex;
+  padding: 2rem 10rem 5rem 10rem;
+  flex-direction: column;
+  background-color: var(--bg-color-colored);
+  
+}
+
+.commets-block ul {
+  list-style-type: none;
+}
+.commets-block ul li {
+  margin-bottom: 0.5rem;
+}
+
+.comment-created_at {
+  color: var(--text-color-light);
+}
+.answer-full {
+  display: flex;
+}
+
+.answer-by-admin {
+  margin-left: 1rem;
+}
+
+
+.all-comments {
+ 
+  margin-bottom: 2rem;
+}
+.add-comment {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}

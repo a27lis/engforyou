@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 class Lesson(models.Model):
     title = models.TextField()
@@ -66,4 +67,14 @@ class Topic(models.Model):
         return self.theme.split('-')
 
 
+class Comment(models.Model):
 
+    text = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    lesson = models.ForeignKey('Lesson', on_delete=models.CASCADE, null=True, blank=True)
+    topic = models.ForeignKey('Topic', on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    answer = models.TextField(null=True)
+
+    def __str__(self):
+        return self.text[:20]

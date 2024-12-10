@@ -1,12 +1,17 @@
 from lib2to3.fixes.fix_input import context
 from pydoc_data.topics import topics
 
+
+from django.contrib.auth.decorators import login_required
+
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.urls import reverse
 
-from .models import Topic, Lesson, SpeakingTheme, Verb
+from .models import Topic, Lesson, SpeakingTheme, Verb, Comment
+from .forms import CommentForm
 
 import random
 
@@ -15,7 +20,7 @@ def random_url(request):
     random_url = random.choice(urls)
     return redirect(reverse(random_url))
 
-# Create your views here.
+
 def index(request):
     topics_list = Topic.objects.all()
     context = {"topics_list": topics_list}
@@ -46,7 +51,23 @@ def topics(request):
 
 def detail_topic(request, pk):
     topic = Topic.objects.get(pk=pk)
-    return render(request, 'learning_english/topic.html', {'topic': topic})
+    comments = Comment.objects.filter(topic=topic).order_by('-created_at')
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.topic = topic
+            comment.save()
+            return redirect(reverse('detail_topic', args=[pk]))
+    else:
+        comment_form = CommentForm()
+    return render(request, 'learning_english/topic.html',
+                  {'topic': topic,
+                   'topic_id':topic.id,
+                   'comments': comments, 
+                   'form': comment_form})
+    
 
 
 def lessons(request):
@@ -56,7 +77,42 @@ def lessons(request):
 
 def detail_lesson(request, pk):
     lesson = Lesson.objects.get(pk=pk)
-    return render(request, 'learning_english/lesson.html', {'lesson': lesson})
+    comments = Comment.objects.filter(lesson=lesson).order_by('-created_at')
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.lesson = lesson
+            comment.save()
+            return redirect(reverse('detail_lesson', args=[pk]))
+    else:
+        comment_form = CommentForm()
+    return render(request, 'learning_english/lesson.html',
+                  {'lesson': lesson,
+                   'lesson_id':lesson.id,
+                   'comments': comments, 
+                   'form': comment_form})
 
 def detail(request, topic_id):
     return HttpResponse("You're looking at topic %s." % topic_id)
+
+
+
+
+@login_required
+def add_comment(request, lesson_id=None, topic_id=None):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            if lesson_id:
+                comment.lesson_id = lesson_id
+            if topic_id:
+                comment.topic_id = topic_id
+            comment.save()
+            return redirect('detail_lesson' if lesson_id else 'detail_topic')
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment.html', {'form': form})
