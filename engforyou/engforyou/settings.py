@@ -35,12 +35,16 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'learning_english.apps.LearningEnglishConfig',
     'users.apps.UsersConfig',
+    'survey.apps.SurveyConfig',
+    'quiz.apps.QuizConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_extensions",
+    'djangoviz',
 
 ]
 
@@ -152,3 +156,11 @@ EMAIL_ADMIN = EMAIL_HOST_USER
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_REDIRECT_URL = '/'
+
+GRAPH_MODELS = {
+
+    'all_applications': True,
+
+    'graph_models': True,
+
+}
