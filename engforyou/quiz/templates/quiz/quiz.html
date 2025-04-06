@@ -18,6 +18,7 @@
         </header>
         <main>
             {{obj.name}}
+            <p>score to pass: {{obj.required_score_to_pass}}%</p>
             <form id="quiz-form" class="mt-3 mb-3">
                {% csrf_token %} 
                <div id="quiz-box" class="quiz-box"></div>
@@ -25,6 +26,8 @@
                     save
                </button>
             </form>
+            <div id="score-box"></div>
+            <div id="result-box"></div>
         </main>
         {% include 'learning_english/includes/footer.html' %}
     </div>

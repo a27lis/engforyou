@@ -943,3 +943,7 @@ li .li-answer {
   display: flex;
   flex-direction: column;
 }
+
+.not-visible {
+  display: none;
+}

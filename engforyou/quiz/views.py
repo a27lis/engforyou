@@ -59,9 +59,9 @@ def save_quiz_view(request, pk):
                         if a.correct:
                             score += 1
                             correct_answer = a.text
-                        else:
-                            if a.correct:
-                                correct_answer = a.text
+                    else:
+                        if a.correct:
+                            correct_answer = a.text
                 results.append({str(q): {'correct_answer': correct_answer, 'answered': a_selected}})
             else:
                 results.append({str(q): 'not answered'})
@@ -73,4 +73,4 @@ def save_quiz_view(request, pk):
             return JsonResponse({'passed': True, 'score': score_, 'results': results})
         else:
             return JsonResponse({'passed': False, 'score': score_, 'results': results})
-            
+             
