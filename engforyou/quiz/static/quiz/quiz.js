@@ -5,6 +5,8 @@ const scoreBox = document.getElementById('score-box')
 const resultBox = document.getElementById('result-box')
 const timerBox = document.getElementById('timer-box')
 
+let isTimerRunning = true;
+
 const activateTimer = (time) => {
 
 
@@ -20,6 +22,12 @@ const activateTimer = (time) => {
     let displayMinutes
 
     const timer = setInterval(() =>{
+
+        if (!isTimerRunning) {
+            clearInterval(timer);
+            return;
+        }
+
         seconds --
         if (seconds < 0) {
             seconds = 59
@@ -151,6 +159,6 @@ const sendData = () => {
 
 quizForm.addEventListener('submit', e=>{
     e.preventDefault()
-
+    isTimerRunning = false;
     sendData()
 })
