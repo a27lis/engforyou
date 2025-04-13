@@ -23,4 +23,5 @@ urlpatterns = [
     path('users/', include('users.urls', namespace="users")),
     path('admin/', admin.site.urls),
     path('quiz/', include('quiz.urls', namespace="quiz")),
+    path('survey/', include('survey.urls', namespace="survey")),
 ]

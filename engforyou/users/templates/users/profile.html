@@ -124,7 +124,9 @@
             <a class="change-pass admin" href="{% url 'admin:index' %}">Перейти в админ панель</a>
           {% endif %}
                 <a class="change-pass" href="{% url 'users:password_change' %}">Сменить пароль</a>
+                <p> <a class="change-pass" href="{% url 'survey:survey-view' %}">Определить мой стиль обучения</a></p>
               </div>
+             
            
           </main>
           {% include 'learning_english/includes/footer.html' %}
