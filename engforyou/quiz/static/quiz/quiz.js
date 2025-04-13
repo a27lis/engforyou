@@ -118,18 +118,19 @@ const sendData = () => {
             const results = response.results
             console.log(results)
             quizForm.classList.add('not-visible')
+            
 
-            scoreBox.innerHTML = `${response.passed ? 'Congratulations!' : 'Ups...:('} Your result is ${response.score.toFixed(2)}%`
+            scoreBox.innerHTML = `${response.passed ? 'Поздравляем!' : 'Упс :('} Ваш результат ${response.score.toFixed(2)}%`
 
             results.forEach(res=>{
                 const resDiv = document.createElement("div")
                 for (const [question, resp] of Object.entries(res)) {
                     resDiv.innerHTML += question
-                    const cls = ['container', 'p-3', 'text-light', 'h3']
+                    const cls = ['container', 'p-3', 'text-light', 'h5']
                     resDiv.classList.add(...cls)
 
                     if (resp=='not answered') {
-                        resDiv.innerHTML += '— not answered'
+                        resDiv.innerHTML += ' — нет ответа'
                         resDiv.classList.add('bg-danger')
                     }
                     else {
@@ -139,11 +140,11 @@ const sendData = () => {
                         console.log(answer, correct)
                         if (answer == correct) {
                             resDiv.classList.add('bg-success')
-                            resDiv.innerHTML += ` answered: ${answer}`
+                            resDiv.innerHTML += ` | ваш ответ: ${answer}`
                         } else {
                             resDiv.classList.add('bg-danger')
-                            resDiv.innerHTML += ` | correct answer: ${correct}`
-                            resDiv.innerHTML += ` | answered: ${answer}`
+                            resDiv.innerHTML += ` | правильный ответ: ${correct}`
+                            resDiv.innerHTML += ` | вы ответили: ${answer}`
                         }
                     }
                 }

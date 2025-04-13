@@ -23,28 +23,28 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Start?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Тест</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="modal-body-confirm">
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">no</button>
-          <button type="button" id="start-button" class="btn btn-success">yes</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">нет</button>
+          <button type="button" id="start-button" class="btn btn-success">да</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="h1">Quiz List</div>
-  <hr>
+  <main>
+    <div class="quizes-content">
+      <div class="h2 title-quiz-list">Тесты</div>
 
-  
-  {% for obj in object_list %}
+      {% for obj in object_list %}
 
   <button
-   class="btn btn-link modal-button" 
+   class="btn modal-button btn-quiz" 
    data-pk="{{obj.pk}}" 
    data-quiz="{{obj.name}}"
     data-questions="{{obj.number_of_questions}}"
@@ -58,6 +58,10 @@
 </button>
     
   {% endfor %}
+    </div>
+  
+  
+  
     
   
         </main>

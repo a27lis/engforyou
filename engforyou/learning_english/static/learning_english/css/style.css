@@ -947,3 +947,49 @@ li .li-answer {
 .not-visible {
   display: none;
 }
+
+
+.quizes-content {
+  padding: 2rem;
+}
+
+.title-quiz-list {
+  text-align: center;
+}
+.btn-quiz {
+  text-decoration: underline;
+ font-size: 20px;
+}
+
+.modal-quiz-ul {
+  list-style-type: none;
+}
+
+.score-box {
+  font-size: 30px;
+  text-align: center;
+  padding: 2rem;
+
+}
+
+
+.my-btn-outline-black-quiz {
+
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid black;
+  color: #fff;
+  background-color: black;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.5s;
+  padding: 0.5rem;
+  font-size: 14px;
+}
+
+.my-btn-outline-black-quiz:hover {
+  border: 2px solid black;
+  background-color: #fff;
+  color: black;
+  box-shadow: none;
+}

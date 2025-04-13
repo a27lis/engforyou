@@ -13,22 +13,22 @@ modalBtns.forEach(modalBtn=> modalBtn.addEventListener('click', ()=> {
     const url = window.location.href
 
     modalBody.innerHTML = `
-    <div class="h5 mb-3"> Are you sure you want to begin?</div>
+    <div class="h5 mb-3">Вы готовы начать?</div>
     <div class="text-muted">
-        <ul>
-            <li>
-                difficulty: <b>${difficulty}</b>
+        <ol class="modal-quiz-ul">
+            <li  class="modal-quiz-ul">
+                Сложность: <b>${difficulty}</b>
                 </li>
                  <li>
-                num: <b>${number_of_questions}</b>
+                Количество вопросов: <b>${number_of_questions}</b>
                 </li>
                  <li>
-                required_score_to_pass: <b>${required_score_to_pass}</b>
+                Успешное прохождение от: <b>${required_score_to_pass}%</b>
                 </li>
                  <li>
-                time: <b>${time} min</b>
+                Время: <b>${time} минут</b>
             </li>
-        </ul>
+        </ol>
     </div>
     `
 
