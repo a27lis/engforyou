@@ -1,4 +1,4 @@
-// Questions and options
+
 const questions = [
     {
         question: "Если вы учитесь готовить, что вам подходит:",
@@ -21,73 +21,73 @@ const questions = [
     {
         question: "Как вы лучше всего запоминаете вещи?",
         options: [
-            "A) By drawing pictures or looking at images.",
-            "B) By repeating the information out loud.",
-            "C) By writing it down and reviewing it.",
-            "D) By using it in a real-life situation."
+            "A) Рисуя картинки или рассматривая изображения.",
+            "B) Повторяя информацию вслух.",
+            "C) Записывая и пересматривая.",
+            "D) Используя в реальной жизни."
         ]
     },
     {
-        question: "How do you prefer to remember your homework tasks?",
+        question: "Как вы предпочитаете запоминать свои домашние задания?",
         options: [
-            "A) Writing them on a colorful planner.",
-            "B) Saying them out loud to yourself.",
-            "C) Writing a list in your notebook.",
-            "D) Associating them with something you did in class."
+            "A) Записывать их в яркий планнер.",
+            "B) Проговаривать их самому себе вслух.",
+            "C) Записывать в списко в записной книге.",
+            "D) Ассоциировать их с чем-то, сделанным в классе."
         ]
     },
     {
-        question: "If you want to learn more about something, what do you do?",
+        question: "Если вы хотите узнать о чем то больше, как вы это делаете?",
         options: [
-            "A) Look at pictures or diagrams.",
-            "B) Talk to someone about it.",
-            "C) Read about it or write notes.",
-            "D) Try it out yourself."
+            "A) Смотрю на картинки и диаграммы.",
+            "B) Обсужу этот вопрос с кем-то.",
+            "C) Почитаю об этом или напишу.",
+            "D) Просто попробую сделать что-то новое."
         ]
     },
     {
-        question: "When your facilitator/teacher explains something, what do you focus on?",
+        question: "Когда ваш преподаватель объясняет что-то, на чем вы фокусируетесь?",
         options: [
-            "A) Watching them write or draw on the board.",
-            "B) Listening to their voice.",
-            "C) Reading notes on the topic.",
-            "D) Doing the task they are explaining."
+            "A) Смотрю как он пишет или рисует на доске.",
+            "B) Слушаю его голос.",
+            "C) Читаю заметки по теме.",
+            "D) Делаю упражнение, которое он объясняет."
         ]
     },
     {
-        question: "When working on a project, what helps you organize your ideas?",
+        question: "Когда вы работаете над проектом, что помогает вам систематизировать ваши идеи?",
         options: [
-            "A) Drawing a mind map or flowchart.",
-            "B) Talking about your ideas with others.",
-            "C) Writing out a list or plan.",
-            "D) Building or creating something related to the project."
+            "A) Рисовать блок-схему или маинд-карту.",
+            "B) Обсуждение моих идей с другими.",
+            "C) Написание пошагово плана.",
+            "D) Создание чего-либо, связанного с проектом."
         ]
     },
     {
-        question: "How do you prefer to learn about different cultures in South Africa?",
+        question: "Как вы предпочитаете знакомиться с различными культурами другого народа?",
         options: [
-            "A) Looking at traditional clothing or pictures.",
-            "B) Listening to someone talk about the culture.",
-            "C) Reading stories about the culture.",
-            "D) Reading stories about the culture."
+            "A) Рассматривать традиционную одежду или фотографии.",
+            "B) Слушать, как кто-то рассказывает о культуре.",
+            "C) Читать истории о культуре.",
+            "D) Съездить в путешествие и познакомиться с другим народом лично."
         ]
     },
     {
-        question: "When working in a group, how do you contribute best?",
+        question: "Когда вы работаете в группе, как вы вносите наибольший вклад?",
         options: [
-            "A) Creating a colorful presentation.",
-            "B) Explaining ideas aloud to others.",
-            "C) Writing down ideas and sharing them.",
-            "D) Building or demonstrating the ideas."
+            "A) Создаю красочную презентацию.",
+            "B) Объясняю всем идею вслух.",
+            "C) Записываю все идеи и потом делюсь ими.",
+            "D) Реализую идеи."
         ]
     },
     {
-        question: "What do you enjoy most about learning?",
+        question: "Что вам больше всего нравится в обучении?",
         options: [
-            "A) Drawing or looking at pictures of what I learn.",
-            "B) Listening to someone explain new things.",
-            "C) Reading books and writing notes.",
-            "D) Doing activities like building or role-playing."
+            "A) Рисовать или рассматривать картинки того, чему я учусь.",
+            "B) Слушать, как кто-то объясняет что-то новое и неизвестное.",
+            "C) Читать книги и писать конспекты.",
+            "D) Выполнение таких действий, как создание или ролевые игры."
         ]
     },
 
@@ -171,16 +171,16 @@ function displayResults() {
 
     if (counts.A === maxAnswer) {
         result = "Визуал";
-        tips = ["Use diagrams, charts, and videos.", "Highlight important information with colors."];
+        tips = ["Используйте диаграммы, графики и видео.", "Выделяйте важное цветами."];
     } else if (counts.B === maxAnswer) {
         result = "Аудиал";
-        tips = ["Discuss concepts with others.", "Listen to podcasts or recorded lectures."];
+        tips = ["Обсуждайте идеи с другими.", "Слушайте подкасты или записанные лекции."];
     } else if (counts.C === maxAnswer) {
         result = "Читатель/писатель";
-        tips = ["Take detailed notes.", "Read and rewrite material to reinforce learning."];
+        tips = ["Пишите заметки.", "Читайте и пишите конспекты, чтобы лучше запомнить материал."];
     } else if (counts.D === maxAnswer) {
         result = "Кинестетик";
-        tips = ["Engage in hands-on activities.", "Use physical objects or role-playing to learn."];
+        tips = ["Погружайтесь в практику.", "Используйте физические объекты или ролевые игры для обучения."];
     }
 
     // Display result
