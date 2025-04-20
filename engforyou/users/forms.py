@@ -41,16 +41,24 @@ class ProfileUserForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email', 'first_name', 'last_name', 'age']
         labels = {
             'first_name': 'Имя',
             'last_name': 'Фамилия',
+            'age': 'Возраст'
             
         }
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-input'}),
             'last_name': forms.TextInput(attrs={'class': 'form-input'}),
+            'age': forms.NumberInput(attrs={'class': 'form-input'})
         }
+        
+    def clean_age(self):
+        age = self.cleaned_data['age']
+        if age is not None and age <= 0:
+            raise forms.ValidationError('Возраст должен быть положительным числом')
+        return age
 
 class UserPasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(label="Старый пароль", widget=forms.PasswordInput(attrs={'class': 'form-input'}))

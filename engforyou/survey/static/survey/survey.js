@@ -95,6 +95,7 @@ const questions = [
 
 // Store user answers
 let userAnswers = [];
+let learningProfile = [];
 
 // Start the quiz
 function startQuiz() {
@@ -162,30 +163,83 @@ function displayResults() {
 
     // Count answers
     const counts = { A: 0, B: 0, C: 0, D: 0 };
-    userAnswers.forEach(answer => counts[answer]++);
+userAnswers.forEach(answer => counts[answer]++);
 
-    // Determine learning style
-    let result = "";
-    let tips = [];
-    const maxAnswer = Math.max(counts.A, counts.B, counts.C, counts.D);
+// Вычисляем общее количество ответов
+const totalAnswers = userAnswers.length;
 
-    if (counts.A === maxAnswer) {
-        result = "Визуал";
-        tips = ["Используйте диаграммы, графики и видео.", "Выделяйте важное цветами."];
-    } else if (counts.B === maxAnswer) {
-        result = "Аудиал";
-        tips = ["Обсуждайте идеи с другими.", "Слушайте подкасты или записанные лекции."];
-    } else if (counts.C === maxAnswer) {
-        result = "Читатель/писатель";
-        tips = ["Пишите заметки.", "Читайте и пишите конспекты, чтобы лучше запомнить материал."];
-    } else if (counts.D === maxAnswer) {
-        result = "Кинестетик";
-        tips = ["Погружайтесь в практику.", "Используйте физические объекты или ролевые игры для обучения."];
-    }
+// Создаем массив стилей с их процентами
+const styles = [
+    { type: 'Визуал', count: counts.A },
+    { type: 'Аудиал', count: counts.B },
+    { type: 'Читатель/писатель', count: counts.C },
+    { type: 'Кинестетик', count: counts.D }
+];
 
-    // Display result
-    document.getElementById("result-text").innerText = `Ваш стиль обучения: ${result}`;
-    document.getElementById("learning-tips").innerHTML = tips.map(tip => `<li>${tip}</li>`).join('');
+// Сохраняем проценты в отдельные переменные
+const visualPercent = (styles[0].count / totalAnswers * 100).toFixed(1);
+const audioPercent = (styles[1].count / totalAnswers * 100).toFixed(1);
+const readerPercent = (styles[2].count / totalAnswers * 100).toFixed(1);
+const kinestheticPercent = (styles[3].count / totalAnswers * 100).toFixed(1);
+
+// Сортируем стили по убыванию процентов
+const sortedStyles = [...styles].sort((a, b) => b.count - a.count);
+
+// Получаем два основных стиля
+const mainStyle = sortedStyles[0];
+const secondaryStyle = sortedStyles[1];
+
+// Получаем советы для обоих основных стилей
+let tips = [];
+switch(true) {
+    case mainStyle.type === 'Визуал' && secondaryStyle.type === 'Аудиал':
+        tips = [
+            "Используйте диаграммы, графики и видео.",
+            "Выделяйте важное цветами.",
+            "Обсуждайте идеи с другими.",
+            "Слушайте подкасты или записанные лекции."
+        ];
+        break;
+    case mainStyle.type === 'Визуал' && secondaryStyle.type === 'Читатель/писатель':
+        tips = [
+            "Используйте диаграммы, графики и видео.",
+            "Выделяйте важное цветами.",
+            "Пишите заметки.",
+            "Читайте и пишите конспекты, чтобы лучше запомнить материал."
+        ];
+        break;
+    case mainStyle.type === 'Визуал' && secondaryStyle.type === 'Кинестетик':
+        tips = [
+            "Используйте диаграммы, графики и видео.",
+            "Выделяйте важное цветами.",
+            "Погружайтесь в практику.",
+            "Используйте физические объекты или ролевые игры для обучения."
+        ];
+        break;
+    // Добавьте другие комбинации стилей аналогичным образом
+}
+
+// Отображаем результат
+document.getElementById("result-text").innerHTML = `
+    <div>Ваши основные стили обучения (${visualPercent}% + ${audioPercent}%):</div>
+    <div>1. ${mainStyle.type} (${(mainStyle.count / totalAnswers * 100).toFixed(1)}%)</div>
+    <div>2. ${secondaryStyle.type} (${(secondaryStyle.count / totalAnswers * 100).toFixed(1)}%)</div>
+    <div>Распределение остальных стилей:</div>
+    <div>${styles.map(style => `${style.type}: ${(style.count / totalAnswers * 100).toFixed(1)}%`).join(', ')}</div>
+`;
+
+document.getElementById("learning-tips").innerHTML = tips.map(tip => `<li>${tip}</li>`).join('');
+
+learningProfile = {
+    visual_percent: parseFloat(visualPercent),
+    audio_percent: parseFloat(audioPercent),
+    reader_percent: parseFloat(readerPercent),
+    kinesthetic_percent: parseFloat(kinestheticPercent),
+    primary_style: mainStyle.type,
+    secondary_style: secondaryStyle.type,
+};
+
+
 }
 
 // Reset the quiz
