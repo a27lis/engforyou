@@ -98,7 +98,7 @@ const csrf = document.getElementsByName('csrfmiddlewaretoken')
 const sendData = () => {
     const elements = [...document.getElementsByClassName('ans')]
     const data = {}
-    data['csrfmiddlewaretoken'] = csrf[0].value
+    data['csrfmiddlewaretoken'] = 
     elements.forEach(el=>{
         if (el.checked) {
             data[el.name] = el.value

@@ -1,6 +1,7 @@
 
+const url = window.location.href
 const questions = [
-    {
+   {
         question: "Если вы учитесь готовить, что вам подходит:",
         options: [
             "A) Посмотреть видео-рецепт.",
@@ -53,7 +54,7 @@ const questions = [
             "C) Читаю заметки по теме.",
             "D) Делаю упражнение, которое он объясняет."
         ]
-    },
+    }, 
     {
         question: "Когда вы работаете над проектом, что помогает вам систематизировать ваши идеи?",
         options: [
@@ -92,12 +93,10 @@ const questions = [
     },
 
 ];
-
-// Store user answers
 let userAnswers = [];
 let learningProfile = [];
 
-// Start the quiz
+
 function startQuiz() {
     
 
@@ -107,21 +106,17 @@ function startQuiz() {
     loadQuestions();
 }
 
-// Load questions dynamically with horizontal lines
 function loadQuestions() {
     const questionsContainer = document.getElementById("questions-container");
-    questionsContainer.innerHTML = ""; // Clear any existing content
+    questionsContainer.innerHTML = ""; 
 
     questions.forEach((q, index) => {
-        // Build the question HTML with a horizontal line
         const questionHTML = `
             <div class="question">
 
                 <p><strong>${index + 1}. ${q.question}</strong></p>
                 
                 ${q.options.map((option, i) => `
-                    
-                   
                     <div class="row">
                         <div class="col-8">
                              <div class="radio-text">${option}</div>
@@ -141,7 +136,6 @@ function loadQuestions() {
 }
 
 
-// Handle form submission
 document.getElementById("quiz-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -152,23 +146,21 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     });
 
     displayResults();
+
 });
 
-// Calculate and display results
+
 function displayResults() {
     const resultSection = document.getElementById("result-section");
     const quizSection = document.getElementById("quiz-section");
     quizSection.style.display = "none";
     resultSection.style.display = "block";
 
-    // Count answers
     const counts = { A: 0, B: 0, C: 0, D: 0 };
 userAnswers.forEach(answer => counts[answer]++);
 
-// Вычисляем общее количество ответов
 const totalAnswers = userAnswers.length;
 
-// Создаем массив стилей с их процентами
 const styles = [
     { type: 'Визуал', count: counts.A },
     { type: 'Аудиал', count: counts.B },
@@ -176,23 +168,19 @@ const styles = [
     { type: 'Кинестетик', count: counts.D }
 ];
 
-// Сохраняем проценты в отдельные переменные
 const visualPercent = (styles[0].count / totalAnswers * 100).toFixed(1);
 const audioPercent = (styles[1].count / totalAnswers * 100).toFixed(1);
 const readerPercent = (styles[2].count / totalAnswers * 100).toFixed(1);
 const kinestheticPercent = (styles[3].count / totalAnswers * 100).toFixed(1);
 
-// Сортируем стили по убыванию процентов
 const sortedStyles = [...styles].sort((a, b) => b.count - a.count);
 
-// Получаем два основных стиля
 const mainStyle = sortedStyles[0];
 const secondaryStyle = sortedStyles[1];
 
-// Получаем советы для обоих основных стилей
 let tips = [];
 switch(true) {
-    case mainStyle.type === 'Визуал' && secondaryStyle.type === 'Аудиал':
+    case mainStyle.type === 'Визуал':
         tips = [
             "Используйте диаграммы, графики и видео.",
             "Выделяйте важное цветами.",
@@ -200,7 +188,7 @@ switch(true) {
             "Слушайте подкасты или записанные лекции."
         ];
         break;
-    case mainStyle.type === 'Визуал' && secondaryStyle.type === 'Читатель/писатель':
+    case mainStyle.type === 'Аудиал':
         tips = [
             "Используйте диаграммы, графики и видео.",
             "Выделяйте важное цветами.",
@@ -208,7 +196,7 @@ switch(true) {
             "Читайте и пишите конспекты, чтобы лучше запомнить материал."
         ];
         break;
-    case mainStyle.type === 'Визуал' && secondaryStyle.type === 'Кинестетик':
+    case mainStyle.type === 'Читатель/писатель':
         tips = [
             "Используйте диаграммы, графики и видео.",
             "Выделяйте важное цветами.",
@@ -216,12 +204,18 @@ switch(true) {
             "Используйте физические объекты или ролевые игры для обучения."
         ];
         break;
-    // Добавьте другие комбинации стилей аналогичным образом
+    case mainStyle.type === 'Кинестетик':
+        tips = [
+            "Используйте диаграммы, графики и видео.",
+            "Выделяйте важное цветами.",
+            "Погружайтесь в практику.",
+            "Используйте физические объекты или ролевые игры для обучения."
+        ];
+        break;
 }
 
-// Отображаем результат
 document.getElementById("result-text").innerHTML = `
-    <div>Ваши основные стили обучения (${visualPercent}% + ${audioPercent}%):</div>
+    <div>Ваши основные стили обучения (${mainStyle.type} + ${secondaryStyle.type}):</div>
     <div>1. ${mainStyle.type} (${(mainStyle.count / totalAnswers * 100).toFixed(1)}%)</div>
     <div>2. ${secondaryStyle.type} (${(secondaryStyle.count / totalAnswers * 100).toFixed(1)}%)</div>
     <div>Распределение остальных стилей:</div>
@@ -239,12 +233,50 @@ learningProfile = {
     secondary_style: secondaryStyle.type,
 };
 
+const csrf = document.getElementsByName('csrfmiddlewaretoken')
+const data = {csrfmiddlewaretoken: getCookie('csrftoken'),
+    visual_percent: learningProfile.visual_percent,
+    audio_percent: learningProfile.audio_percent,
+    reader_percent: learningProfile.reader_percent,
+    kinesthetic_percent: learningProfile.kinesthetic_percent,
+    primary_style: learningProfile.primary_style,
+    secondary_style: learningProfile.secondary_style}
+$.ajax({
+    type: 'POST',
+    url: `${url}save/`,
+    data: data,
+    success: function(response) {
+        console.log('Профиль обучения сохранен успешно');
+    },
+    error: function(xhr, status, error) {
+        console.error('Ошибка AJAX запроса:', error);
+        console.log('Ответ сервера:', xhr.responseText);
+        console.log(data);
+    }
+});
 
 }
 
-// Reset the quiz
+
+
 function resetQuiz() {
     document.getElementById("result-section").style.display = "none";
     document.getElementById("intro-section").style.display = "block";
 
+}
+
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
