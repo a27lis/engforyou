@@ -1,9 +1,14 @@
 # myapp/templatetags/cache_tags.py
 from django import template
-from django.core.cache import cache
+#from django.core.cache import cache
 from django.conf import settings
 import requests
 import logging
+import redis
+import json
+
+cache = redis.Redis.from_url('redis://localhost:6379/0')
+
 
 
 register = template.Library()
@@ -18,7 +23,7 @@ def get_recommendations(context):
     user_id = request.user.id
     
     # Пытаемся получить данные из кэша
-    cache_key = f"user:{user_id}:recommendations"
+    cache_key = 'user:1:recommendations'
     logger.info(cache_key)
     recommendations = cache.get(cache_key)
     logger.info("recomendations from cache: " + str(recommendations))
@@ -33,10 +38,10 @@ def get_recommendations(context):
             response.raise_for_status()            
             # Сохраняем результат в кэш
             recommendations = response.json()
-            cache.set('django', 'ok', 3600)
+            logger.info(str(recommendations))
         except Exception as e:
             # Логируем ошибку и возвращаем пустой список
             logger.error(f"Error getting recommendations: {str(e)}")
             return []
-    
-    return recommendations
+    loaded_recommendations = json.loads(recommendations.decode('utf-8'))
+    return loaded_recommendations
