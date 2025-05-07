@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
-from config import EMAIL_HOST_PASSWORD
+from config import EMAIL_HOST_PASSWORD, DB_USER, DB_PASS, REDIS_URL
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,9 +87,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'engforyou',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',   # или IP-адрес сервера OpenServer
+        'USER': DB_USER,
+        'PASSWORD': DB_PASS,
+        'HOST': 'localhost',   
         'PORT': '3306',
     }
 }
@@ -97,10 +97,20 @@ DATABASES = {
 # settings.py
 CACHES = {
     'default': {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        'LOCATION': 'redis://192.168.1.138:6379/0',
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': REDIS_URL,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'IGNORE_EXCEPTIONS': False,  # Показывать все ошибки
+            'CONNECTION_POOL_KWARGS': {
+                'max_connections': 100,
+                'retry_on_timeout': True,
+            }
+        }
     }
 }
+
+FASTAPI_URL = 'http://127.0.0.1:8001'
 
 
 # Password validation
