@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_extensions",
     'djangoviz',
+    'django_celery_beat'
 
 ]
 
@@ -111,6 +112,17 @@ CACHES = {
 }
 
 FASTAPI_URL = 'http://127.0.0.1:8001'
+CELERY_BROKER_URL = REDIS_URL
+CELERY_RESULT_BACKEND = REDIS_URL
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
+
+CELERYBEAT_SCHEDULE = {
+    'update-recomendations': {
+        'task': 'recomendations.tasks.update_recomendations',
+        'schedule': '*/1 * * * *'
+    }
+}
 
 
 # Password validation
