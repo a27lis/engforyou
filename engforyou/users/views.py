@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 from django.views.generic import CreateView, UpdateView
 from django.urls import reverse, reverse_lazy
 
+from survey.models import LearningStyle
+
 from .forms import LoginUserForm, RegisterUserForm, ProfileUserForm, UserPasswordChangeForm
 
 
@@ -42,3 +44,8 @@ class ProfileUser(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['learning_style'] = LearningStyle.objects.get(user=self.object)
+        return context

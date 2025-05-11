@@ -82,6 +82,11 @@
           text-align: center;
           align-self: center;
         }
+        .survey-res {
+          padding-top: 2rem;
+          text-align: center;
+        }
+        
     </style>
 </head>
 <body>
@@ -106,8 +111,19 @@
           </header>
 
           <main>
-            
+             <div class="survey-res">
+                {% if learning_style %}
+                    <div class="h5">Ваши основные стили обучения: {{learning_style.primary_style}} + {{learning_style.secondary_style}}</div>
+                    <div>Визуал {{learning_style.visual_percent}}%</div>
+                    <div>Аудиал {{learning_style.audio_percent}}%</div>
+                    <div>Читатель/писатель {{learning_style.reader_percent}}%</div>
+                    <div class="mb-2">Кинестетик {{learning_style.kinesthetic_percent}}%</div>                    
+                {% endif %}
+                <div><a class="change-pass survey-btn" href="{% url 'survey:survey-view' %}">Определить мой стиль обучения</a></div>
+              </div>
             <div class="container">
+
+             
              
 
                 <form method="post">
@@ -124,7 +140,7 @@
             <a class="change-pass admin" href="{% url 'admin:index' %}">Перейти в админ панель</a>
           {% endif %}
                 <a class="change-pass" href="{% url 'users:password_change' %}">Сменить пароль</a>
-                <p> <a class="change-pass" href="{% url 'survey:survey-view' %}">Определить мой стиль обучения</a></p>
+
               </div>
              
            

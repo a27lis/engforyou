@@ -1,4 +1,4 @@
-# myapp/templatetags/cache_tags.py
+
 from django import template
 from django.core.cache import cache
 from django.conf import settings
