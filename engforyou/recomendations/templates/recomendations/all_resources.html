@@ -45,6 +45,7 @@
                     {% get_recommendations as recommendations %}
                     {% for item in recommendations %}
                         <div class="recommendation">
+                        {{item}}
                             {{ item.title }}
                             {{ item.description }}
                         </div>
