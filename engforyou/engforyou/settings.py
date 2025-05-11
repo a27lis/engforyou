@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 from config import EMAIL_HOST_PASSWORD, DB_USER, DB_PASS, REDIS_URL
-
+from celery.schedules import crontab
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_extensions",
     'djangoviz',
-    'django_celery_beat'
+    'django_celery_beat',
+    'django_celery_results'
 
 ]
 
@@ -117,10 +118,10 @@ CELERY_RESULT_BACKEND = REDIS_URL
 
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
 
-CELERYBEAT_SCHEDULE = {
-    'update-recomendations': {
+CELERY_BEAT_SCHEDULE = {
+    'update-recommendations': {
         'task': 'recomendations.tasks.update_recomendations',
-        'schedule': '*/1 * * * *'
+        'schedule': crontab(minute='*/1'),  # Каждую минуту
     }
 }
 

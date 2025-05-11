@@ -2,10 +2,8 @@ import requests
 from celery import shared_task
 import redis
 from datetime import timedelta
+from django.conf import settings
 
-
-
-cache = redis.Redis.from_url('redis://localhost:6379/0')
 
 @shared_task(bind=True)
 def update_recomendations(self):
@@ -18,5 +16,5 @@ def update_recomendations(self):
 			return True
 		return False
 	except Exception as e:
-		print(f'error: {str(e)}')
+		print(f"error: {str(e)}")
 		self.retry(countdown=60)
